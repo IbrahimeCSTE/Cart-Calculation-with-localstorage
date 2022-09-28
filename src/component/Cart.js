@@ -2,9 +2,10 @@ import React from "react";
 
 const Cart = () => {
   const cart = JSON.parse(localStorage.getItem("Cart"));
-  console.log(cart);
 
-  let productCost = cart ? cart.reduce((a, b) => a + b.price, 0) : 0;
+  let productCost = cart
+    ? cart.reduce((a, b) => a + b.price * b.quantity, 0)
+    : 0;
   let shippingCost = cart ? cart.reduce((a, b) => a + b.shipping, 0) : 0;
   let tax = parseFloat((productCost * 0.1).toFixed(2));
   return (

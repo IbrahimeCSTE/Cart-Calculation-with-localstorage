@@ -10,7 +10,6 @@ function App() {
   let newCart;
   useEffect(() => {
     try {
-      console.log(3);
       fetch("products.json")
         .then((res) => res.json())
         .then((data) => setProduct(data));
